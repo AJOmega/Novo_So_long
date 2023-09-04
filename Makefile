@@ -1,10 +1,12 @@
-NAME = So_long
+NAME = so_long
 
-CC	= cc
+CC = cc
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror #add flags after $(CC) when testing add $(FLAGS)
 
-SRCS = so_long.c
+SRCS = get_next_line.c so_long.c init.c utils.c \
+check_map.c build_map.c utils2.c movement.c \
+exit.c floodfill.c
 
 OBJS = $(SRCS:.c=.o)
 

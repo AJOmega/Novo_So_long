@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jabreu-d <jabreu-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 23:22:17 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/08/12 23:23:32 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/03 19:44:15 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,44 @@ void	ft_putnbr_fd(int nb, int fd)
 	if (nbr >= 10)
 		ft_putnbr_fd(nbr / 10, fd);
 	ft_putchar_fd((char)(nbr % 10 + 48), fd);
+}
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+int	ft_blank_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && str[i] != '\n' && str[i] != ' ')
+		i++;
+	return (i);
+}
+
+char	*ft_strdup(const char *s)
+{
+	char	*cpy;
+	int		i;
+
+	i = 0;
+	cpy = malloc(ft_strlen((char *)s) + 1);
+	if (!cpy)
+	{
+		return (0);
+	}
+	while (s[i])
+	{
+		cpy[i] = s[i];
+		i++;
+	}
+	cpy[i] = '\0';
+	return (cpy);
 }
