@@ -6,7 +6,7 @@
 /*   By: jabreu-d <jabreu-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 17:58:31 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/03 19:50:35 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/04 22:52:47 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,25 +53,6 @@
 # define COLLECTIBLE		'C'
 # define FLOOR				'0'
 
-// Window struct
-
-typedef struct s_win
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		height;
-	int		width;
-	t_map	map_ptr;
-	t_img	imgs;
-}	t_win;
-// Position struct
-
-typedef struct s_Position
-{
-	int	row;
-	int	col;
-}	t_Position;
-
 // Map Struct
 
 typedef struct map
@@ -85,6 +66,7 @@ typedef struct map
 	int				n_moves;
 }			t_map;
 
+
 // Images struct
 
 typedef struct s_img
@@ -96,6 +78,26 @@ typedef struct s_img
 	void	*floor_img;
 	void	*item_img;
 }			t_img;
+
+// Window struct
+
+typedef struct s_win
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	int		height;
+	int		width;
+	t_map	map_ptr;
+	t_img	imgs;
+}	t_win;
+
+// Position struct
+
+typedef struct s_Position
+{
+	int	row;
+	int	col;
+}	t_Position;
 
 // Floodfill
 
