@@ -8,7 +8,6 @@ SRCS = get_next_line.c so_long.c init.c utils.c \
 
 OBJS = $(SRCS:.c=.o)
 
-# Assuming libmlx.a is the correct name for the library
 MLX_LIB = ./minilibx-linux/libmlx.a
 
 $(NAME) : $(OBJS)

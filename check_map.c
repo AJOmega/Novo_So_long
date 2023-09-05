@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jabreu-d <jabreu-d@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:41:03 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/03 19:06:55 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:19:59 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ int	map_has_components(t_win *window)
 		j = -1;
 		while (++j < window->width)
 		{
-			if (is_invalid_6char(window->map_ptr.map[i][j]))
+			if (is_invalid_char(window->map_ptr.map[i][j]))
 				return (0);
 			if (!aux_components(window, i, j))
 				return (0);
