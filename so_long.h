@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jabreu-d <jabreu-d@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 17:58:31 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/04 22:52:47 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/05 20:01:30 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	clean_map(char **map);
 char	**ft_create_map(char **map, int fd, int count);
 void	window_init(t_win *window);
 
-//checker.c
+//checke_map.c
 int		check_map(t_win	*window);
 int		map_is_rectangular(t_win	*window);
 int		map_is_surrounded(t_win	*window);
@@ -133,12 +133,14 @@ char	*ft_strdup(const char *s);
 
 //utils2.c
 void	str_arr_free(t_win *window);
+int		is_invalid_char(char c);
+char	*ft_strchr(const char *str, int c);
 //void	*ft_memset(void *s, int c, size_t n);
 //void	print_number(int number, int fd);
 
-//map_build.c
+//build_map.c
 int		build_map(t_win *window);
-void	insert_image(char c, int i, int j, t_win *win);
+void	insert_image(char c, int j, int i, t_win *window);
 void	setup_images(t_win	*window);
 
 //movement.c
