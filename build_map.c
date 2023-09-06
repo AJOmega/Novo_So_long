@@ -6,7 +6,7 @@
 /*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 23:48:25 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/05 20:10:24 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/06 20:07:50 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,41 @@
 
 int	build_map(t_win *window)
 {
-	int	i;
-	int	j;
+	int	x;
+	int	y;
 
-	i = 0;
-	while (i < window->height)
+	y = 0;
+	while (y < window->height)
 	{
-		j = 0;
-		while (j < window->width)
+		x = 0;
+		while (x < window->width)
 		{
-			insert_image(window->map_ptr.map[i][j], j, i, window);
-			j++;
+			insert_image(window->map_ptr.map[y][x], x, y, window);
+			x++;
 		}
-		i++;
+		y++;
 	}
-	return (i);
+	insert_image('P', window->map_ptr.x_player, \
+	window->map_ptr.y_player, window);
+	return (0);
 }
 
-void	insert_image(char c, int j, int i, t_win *window)
+void	insert_image(char c, int x, int y, t_win *window)
 {
+	void	*img;
+
+	img = window->imgs.floor_img;
 	if (c == 'P')
-	{
-		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, \
-		window->imgs.ply_img, i * PIXEL, j * PIXEL);
-	}
-	if (c == '1')
-	{
-		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, \
-		window->imgs.wall_img, i * PIXEL, j * PIXEL);
-	}
-	if (c == 'C')
-	{
-		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, \
-		window->imgs.item_img, i * PIXEL, j * PIXEL);
-	}
+		img = window->imgs.ply_img;
+
+	else if (c == '1')
+		img = window->imgs.wall_img;
+	else if (c == 'C')
+		img = window->imgs.item_img;
 	if (c == 'E')
-	{
-		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, \
-		window->imgs.exit_img, i * PIXEL, j * PIXEL);
-	}
-	if (c == '0')
-	{
-		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, \
-		window->imgs.floor_img, i * PIXEL, j * PIXEL);
-	}
+		img = window->imgs.exit_img;
+	mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, \
+	img, x * PIXEL, y * PIXEL);
 }
 
 void	setup_images(t_win	*window)

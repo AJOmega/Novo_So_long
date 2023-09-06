@@ -25,3 +25,7 @@ fclean: clean
 	rm -f $(NAME)
 
 re:	fclean all
+
+
+r:
+	make re && clear && valgrind ./so_long map2.ber

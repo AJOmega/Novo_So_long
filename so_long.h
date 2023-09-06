@@ -6,7 +6,7 @@
 /*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 17:58:31 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/05 20:01:30 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/06 20:26:11 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 // Sprite Size
 
-# define PIXEL	 		64
+# define PIXEL	 		32
 
 // write xev on terminal to find keycode
 
@@ -47,11 +47,11 @@
 
 			// Define 
 
-# define WALL				'1'
-# define PLAYER				'P'
-# define EXIT				'E'
-# define COLLECTIBLE		'C'
-# define FLOOR				'0'
+# define WALL				49
+# define PLAYER				80
+# define EXIT				69
+# define COLLECTIBLE		67
+# define FLOOR				48
 
 // Map Struct
 
@@ -110,7 +110,6 @@ typedef struct s_floodfill{
 
 //exit.c
 int		exit_window(t_win *window);
-void	clean_map(char **map);
 
 //inits.c
 char	**ft_create_map(char **map, int fd, int count);

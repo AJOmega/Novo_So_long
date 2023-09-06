@@ -6,7 +6,7 @@
 /*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:41:03 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/05 19:19:59 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/06 20:30:27 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,15 @@ int	check_map(t_win *win)
 int	map_is_rectangular(t_win *window)
 {
 	int	i;
-	
+
 	i = 0;
 	if (!ft_blank_strlen(window->map_ptr.map[0]))
-	{
-		// Change to allow the game to start instead
-		write(1, "map is invalid (remove empty lines before the map)", 51);
-		return (0);
-	}
+		return (write(1, "map is invalid (remove empty lines before the map)"\
+		, 51));
 	window->width = ft_blank_strlen(window->map_ptr.map[0]);
-	while (window->map_ptr.map[i] && window->map_ptr.map[i][0] != '\n')
+	while (window->map_ptr.map[i])
 	{
-		if (ft_blank_strlen(window->map_ptr.map[0]) != \
+		if (window->width != \
 			ft_blank_strlen(window->map_ptr.map[i]))
 		{
 			write (1, "Map is not rectangular.", 24);
@@ -63,9 +60,8 @@ int	map_is_rectangular(t_win *window)
 		}
 		i++;
 	}
-	write (1, "map_is_rectangular\n", 20); 
 	window->height = i;
-	return (i);
+	return (write (1, "map_is_rectangular\n", 20));
 }
 
 int	map_is_surrounded(t_win	*window)
@@ -103,6 +99,7 @@ int	aux_components(t_win *window, int i, int j)
 		}
 		window->map_ptr.x_player = j;
 		window->map_ptr.y_player = i;
+		window->map_ptr.map[i][j] = '0';
 	}
 	if (window->map_ptr.map[i][j] == 'E')
 	{

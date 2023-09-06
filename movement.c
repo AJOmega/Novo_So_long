@@ -6,7 +6,7 @@
 /*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 21:44:54 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/05 20:23:13 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/06 20:11:01 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,28 @@ void	start_movement(int keycode, t_win *window)
 	if (keycode == KEY_D)
 		x++;
 	move_possible = check_movement(x, y, window);
-	if (move_possible == 0)
+	if (move_possible)
 	{
 		window->map_ptr.n_moves++;
 		ft_putnbr_fd(window->map_ptr.n_moves, 1);
 		write(1, "\n", 1);
 		if (move_possible == 2)
 			move_possible = exit_window(window);
-		if (move_possible == 1)
+		else
 			exec_move(x, y, window);
 	}
 }
 
 int	check_movement(int x, int y, t_win *window)
 {
+	printf("%c\n", window->map_ptr.map[y][x]);
 	if (window->map_ptr.map[y][x] == '1')
 		return (0);
 	if (window->map_ptr.map[y][x] == 'E')
 	{
 		if (window->map_ptr.n_items == 0)
 			return (2);
+		return (0);
 	}
 	if (window->map_ptr.map[y][x] == 'C')
 	{

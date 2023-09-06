@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floodfill.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jabreu-d <jabreu-d@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 22:26:39 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/03 19:54:55 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/06 20:24:03 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,10 @@ void	free_map(char **map, t_win *win)
 	int	i;
 
 	i = -1;
-	while (++i < win->height)
-		free(map[i]);
-	free(map);
+	if (map)
+	{
+		while (++i < win->height)
+			free(map[i]);
+		free(map);
+	}
 }
