@@ -6,7 +6,7 @@
 /*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 22:26:39 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/06 20:24:03 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/07 21:57:23 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ char	**create_map(t_win *win)
 	char	**map;
 	int		i;
 
-	i = -1; // Ver motivo
+	i = 0;
 	map = NULL;
 	map = (char **)malloc(sizeof(char *) * (win->height + 1));
 	if (!map)
 		return (NULL);
-	while (++i < win->height)
+	while (i < win->height)
+	{
 		map[i] = ft_strdup(win->map_ptr.map[i]);
+		i++;
+	}
 	return (map);
 }
 

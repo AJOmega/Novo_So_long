@@ -6,7 +6,7 @@
 /*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 17:58:05 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/06 20:21:14 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/07 22:05:27 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	main(int argc, char *argv[])
 	if (!window.mlx_ptr || !window.win_ptr)
 		return (1);
 	build_map(&window);
-	mlx_key_hook(window.win_ptr, check_keyboard, &window);
+	mlx_hook(window.win_ptr, 2, (1L << 0), check_keyboard, &window);
 	mlx_hook(window.win_ptr, 17, 0, exit_window, &window);
 	mlx_loop(window.mlx_ptr);
 	return (0);

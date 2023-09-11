@@ -6,7 +6,7 @@
 /*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 21:44:54 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/06 21:34:57 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/07 20:00:57 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	start_movement(int keycode, t_win *window)
 
 int	check_movement(int x, int y, t_win *window)
 {
-	printf("%c\n", window->map_ptr.map[y][x]);
 	if (window->map_ptr.map[y][x] == '1')
 		return (0);
 	if (window->map_ptr.map[y][x] == 'E')

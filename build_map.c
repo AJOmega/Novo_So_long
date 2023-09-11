@@ -6,7 +6,7 @@
 /*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 23:48:25 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/06 21:35:25 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/07 22:11:02 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	insert_image(char c, int x, int y, t_win *window)
 	img = window->imgs.floor_img;
 	if (c == 'P')
 		img = window->imgs.ply_img;
-
 	else if (c == '1')
 		img = window->imgs.wall_img;
 	else if (c == 'C')

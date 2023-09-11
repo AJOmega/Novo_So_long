@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jabreu-d <jabreu-d@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:20:52 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/03 19:20:53 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/07 22:10:27 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,58 +45,6 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
-
-// char	*treat_buffer_newline(char *buffer, char *line)
-// {
-// 	int	i;
-// 	int	j;
-
-// 	i = 0;
-// 	j = 0;
-// 	while (buffer[i])
-// 	{
-// 		if (i <= find_chr_index(buffer, 10))
-// 			line[i] = buffer[i];
-// 		else
-// 		{
-// 			buffer[j] = buffer[i];
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	while (buffer[j])
-// 	{
-// 			buffer[j] = 0;
-// 			j++;
-// 	}
-// 	line[i] = '\0';
-// 	return (line);
-// }
-
-// /**
-//  * this function reads the file until it reaches the end of it
-//  * or it reaches a new line character
-// */
-// char	*read_line(int fd, char *buffer, char *line)
-// {
-// 	int	nchr_read;
-// 	int	nline_flag;
-
-// 	nchr_read = 0;
-// 	nline_flag = 0;
-// 	while (1)
-// 	{
-// 		nchr_read = read (fd, buffer, BUFFER_SIZE);
-// 		buffer[nchr_read] = '\0';
-// 		if (nchr_read == 0)
-// 			return (line);
-// 		nline_flag = find_chr_index(buffer, 10);
-// 		if (nline_flag == -1)
-// 			line = update_line(buffer, line, BUFFER_SIZE);
-// 		else
-// 			return (update_line(buffer, line, nline_flag));
-// 	}
-// }
 
 /**
  * this function returns the index of the char

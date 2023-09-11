@@ -6,7 +6,7 @@
 /*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 17:58:31 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/06 21:34:16 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2023/09/07 22:09:04 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ typedef struct map
 	int				n_moves;
 }			t_map;
 
-
 // Images struct
 
 typedef struct s_img
@@ -106,7 +105,6 @@ typedef struct s_floodfill{
 	int		total;
 	char	target;
 }			t_floodfill;
-
 
 //exit.c
 int		exit_window(t_win *window);
@@ -154,13 +152,7 @@ char	**create_map(t_win *win);
 void	free_map(char **map, t_win *win);
 
 //utils3.c
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-int		indchr(char *str, int c);
-
-
-
-
-
-
+// int		ft_strncmp(const char *s1, const char *s2, size_t n);
+// int		indchr(char *str, int c);
 
 #endif
