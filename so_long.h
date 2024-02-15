@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jabreu-d <jabreu-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 17:58:31 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/07 22:09:04 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2024/02/15 00:28:27 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct s_img
 	int		size;
 	void	*ply_img;
 	void	*exit_img;
+	void	*alt_exit_img;
 	void	*wall_img;
 	void	*floor_img;
 	void	*item_img;
@@ -154,5 +155,8 @@ void	free_map(char **map, t_win *win);
 //utils3.c
 // int		ft_strncmp(const char *s1, const char *s2, size_t n);
 // int		indchr(char *str, int c);
+char	*ft_itoa(int n);
+char	*ft_protect(char *str, int n);
+char	*ft_25max(int n, int i, char *str, int sign);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jabreu-d <jabreu-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 17:58:05 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/07 22:05:27 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2024/02/14 21:03:38 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	check_keyboard(int keycode, t_win *window)
 		[window->map_ptr.x_player] = 0;
 		start_movement(keycode, window);
 	}
+	mlx_clear_window(window->mlx_ptr, window->win_ptr);
 	build_map(window);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jabreu-d <jabreu-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 15:22:22 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/05 19:10:52 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2024/02/14 20:26:02 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	window_init(t_win *window)
 {
 	window->mlx_ptr = mlx_init();
 	window->win_ptr = mlx_new_window(window->mlx_ptr, \
-	window->width * PIXEL, window->height * PIXEL, "So_Long");
+	window->width * PIXEL, window->height * PIXEL + 20, "So_Long");
 }
 
 char	**ft_create_map(char **map, int fd, int count)

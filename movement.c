@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jabreu-d <jabreu-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 21:44:54 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/07 20:00:57 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2024/02/14 23:18:45 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,26 @@ void	start_movement(int keycode, t_win *window)
 
 int	check_movement(int x, int y, t_win *window)
 {
+	int	size;
+
+	size = PIXEL;
+	if (window->map_ptr.n_items == 0)
+	{
+		mlx_destroy_image(window->mlx_ptr, window->imgs.exit_img);
+		window->imgs.exit_img = mlx_xpm_file_to_image(window->mlx_ptr, \
+			"./alt_exit.xpm", &size, &size);
+		mlx_clear_window(window->mlx_ptr, window->win_ptr);
+		insert_image('P', window->map_ptr.x_player, \
+		window->map_ptr.y_player, window);
+	}
 	if (window->map_ptr.map[y][x] == '1')
 		return (0);
-	if (window->map_ptr.map[y][x] == 'E')
+	if (window->map_ptr.map[y][x] == 'E' && window->map_ptr.n_items == 0)
 	{
-		if (window->map_ptr.n_items == 0)
-			return (2);
-		return (0);
+		return (2);
 	}
+	else if (window->map_ptr.map[y][x] == 'E')
+		return (0);
 	if (window->map_ptr.map[y][x] == 'C')
 	{
 		window->map_ptr.n_items--;

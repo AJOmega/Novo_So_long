@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jabreu-d <jabreu-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 21:13:28 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/06 20:26:35 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2024/02/14 22:14:39 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	exit_window(t_win *window)
 		mlx_destroy_image(window->mlx_ptr, window->imgs.item_img);
 	if (window->imgs.wall_img)
 		mlx_destroy_image(window->mlx_ptr, window->imgs.wall_img);
+	if (window->imgs.alt_exit_img)
+		mlx_destroy_image(window->mlx_ptr, window->imgs.alt_exit_img);
 	mlx_destroy_window(window->mlx_ptr, window->win_ptr);
 	mlx_destroy_display(window->mlx_ptr);
 	free(window->mlx_ptr);

@@ -1,10 +1,10 @@
 NAME = so_long
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 
 SRCS = get_next_line.c so_long.c init.c utils.c \
        check_map.c build_map.c utils2.c movement.c \
-       exit.c floodfill.c
+       exit.c floodfill.c utils3.c
 
 OBJS = $(SRCS:.c=.o)
 

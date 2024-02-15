@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jabreu-d <jabreu-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jabreu-d <jabreu-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 23:48:25 by jabreu-d          #+#    #+#             */
-/*   Updated: 2023/09/07 22:11:02 by jabreu-d         ###   ########.fr       */
+/*   Updated: 2024/02/14 23:32:21 by jabreu-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	build_map(t_win *window)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
+	char	*move_nbr;
 
 	y = 0;
 	while (y < window->height)
@@ -30,6 +31,10 @@ int	build_map(t_win *window)
 	}
 	insert_image('P', window->map_ptr.x_player, \
 	window->map_ptr.y_player, window);
+	move_nbr = ft_itoa(window->map_ptr.n_moves);
+	mlx_string_put(window->mlx_ptr, window->win_ptr, 20, 
+		(window->height * PIXEL + 15), 0xFFFFFF, move_nbr);
+	free(move_nbr);
 	return (0);
 }
 
@@ -46,6 +51,8 @@ void	insert_image(char c, int x, int y, t_win *window)
 		img = window->imgs.item_img;
 	if (c == 'E')
 		img = window->imgs.exit_img;
+	// if (c == 'e')
+	// 	img = window->imgs.alt_exit_img;
 	mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, \
 	img, x * PIXEL, y * PIXEL);
 }
@@ -58,6 +65,8 @@ void	setup_images(t_win	*window)
 	"./player.xpm", &size, &size);
 	window->imgs.exit_img = mlx_xpm_file_to_image(window->mlx_ptr, \
 	"./exit.xpm", &size, &size);
+	window->imgs.alt_exit_img = mlx_xpm_file_to_image(window->mlx_ptr, \
+	"./alt_exit.xpm", &size, &size);
 	window->imgs.floor_img = mlx_xpm_file_to_image(window->mlx_ptr, \
 	"./floor.xpm", &size, &size);
 	window->imgs.wall_img = mlx_xpm_file_to_image(window->mlx_ptr, \
